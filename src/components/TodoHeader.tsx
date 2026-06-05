@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   todosLength: number;
@@ -30,7 +31,9 @@ export const TodoHeader: React.FC<Props> = ({
       {(todosLength > 0 || hasTempTodo) && (
         <button
           type="button"
-          className={`todoapp__toggle-all ${isAllCompleted ? 'active' : ''}`}
+          className={classNames('todoapp__toggle-all', {
+            active: isAllCompleted,
+          })}
           data-cy="ToggleAllButton"
           onClick={handleToggleAll}
         />

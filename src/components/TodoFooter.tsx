@@ -1,5 +1,6 @@
 import React from 'react';
 import { FilterType } from '../types/FilterType';
+import classNames from 'classnames';
 
 type Props = {
   itemsCounterText: string;
@@ -57,7 +58,9 @@ export const TodoFooter: React.FC<Props> = ({
             key={item.value}
             href={item.href}
             data-cy={item.dataCy}
-            className={`filter__link ${filter === item.value ? 'selected' : ''}`}
+            className={classNames('filter__link', {
+              selected: filter === item.value,
+            })}
             onClick={() => setFilter(item.value)}
           >
             {item.label}
